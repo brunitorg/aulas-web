@@ -1,17 +1,22 @@
-import express from "express";
-import { mainRouter } from "./routes/main.js";
+import express from 'express';
 
 
-const PORT = 5555;
+import { mainRouter } from './routes/main.js';
+import { estadoRouter } from './routes/estado.js';
+
+const PORT = 3333;
 
 const app = express();
 app.use(express.json());
 
-//Routes:
+// Routes:
 app.use(mainRouter);
+app.use(estadoRouter);
 
-// Sever - start/listen
+
+// Server - start/listen
 app.listen(PORT, () => {
-    console.log(`[SERVER]0 Server is running on port ${PORT}`);
+
+    console.log(`[SERVER] Server is running on port ${PORT}`);
 
 });
